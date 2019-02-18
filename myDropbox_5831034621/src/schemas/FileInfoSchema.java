@@ -70,6 +70,7 @@ public class FileInfoSchema {
         this.setOwner_fileName();
     }
 
+    @DynamoDBIgnore
     public String getOwner() {
         return owner;
     }

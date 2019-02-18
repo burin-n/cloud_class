@@ -17,6 +17,13 @@ public class myDropbox_5831034621 {
         String login_as = null;
         Scanner sc = new Scanner(System.in);
 
+        System.out.println("Welcome to myDropbox Application");
+        System.out.println("======================================================");
+        System.out.println("Please input command (newuser username password password, login ");
+        System.out.println("username password, put filename, get filename, view, or logout).");
+        System.out.println("If you want to quit the program just type quit.");
+        System.out.println("======================================================");
+
         while (true) {
 
             System.out.println("\nWaiting for command...");
@@ -80,6 +87,7 @@ public class myDropbox_5831034621 {
                 String fileName = cmd[1];
                 String toUser = cmd[2];
                 controller.share(fileName, login_as, toUser);
+                System.out.println("OK");
             }
 
             else if(cmd[0].equals("get") && login_as !=null){
@@ -88,6 +96,7 @@ public class myDropbox_5831034621 {
                 if(cmd.length == 3) owner = cmd[2];
 
                 controller.get(fileName, owner, login_as);
+                System.out.println("OK");
             }
 
         }
