@@ -19,7 +19,7 @@ public class myDropbox_5831034621 {
 
         while (true) {
 
-            System.out.println("Waiting for command...");
+            System.out.println("\nWaiting for command...");
 
 
             String command = sc.nextLine();
@@ -35,6 +35,9 @@ public class myDropbox_5831034621 {
                     if (controller.addUser(username, password)) {
                         login_as = username;
                         System.out.println("User: " + login_as + " is registered.");
+                    }
+                    else{
+                        System.out.println("Username: " + username + " is already exists.");
                     }
                 } else {
                     System.out.println("Password does not match.");

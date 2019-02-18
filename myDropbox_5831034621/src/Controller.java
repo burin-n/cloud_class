@@ -24,10 +24,17 @@ public class Controller {
     // user stuffs
     public boolean addUser(String username, String password){
         try {
-            UserInfoSchema item = new UserInfoSchema(username, password);
-            this.mapper.save(item);
-            this.s3.createBucket(bucketPrefix + username);
-            return true;
+            UserInfoSchema user = mapper.load(schemas.UserInfoSchema.class, username,
+                    new DynamoDBMapperConfig(DynamoDBMapperConfig.ConsistentReads.CONSISTENT));
+            if(user == null){
+                UserInfoSchema item = new UserInfoSchema(username, password);
+                this.mapper.save(item);
+                this.s3.createBucket(bucketPrefix + username);
+                return true;
+            }
+            else{
+                return false;
+            }
         }
         catch(Exception e){
             return false;

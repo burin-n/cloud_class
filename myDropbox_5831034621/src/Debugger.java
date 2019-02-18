@@ -1,5 +1,5 @@
 public class Debugger{
-    private static boolean enable = true;
+    private static boolean enable = false;
 
     public static boolean isEnabled(){
         return enable;
