@@ -137,6 +137,7 @@ public class MyS3Wrapper {
         }
     }
 
+    // query only metadata
     public void getObjectMeta(String bucketName, String key){
         ObjectMetadata meta = s3Client.getObjectMetadata(bucketName, key);
         System.out.print(key + " ");
@@ -145,6 +146,7 @@ public class MyS3Wrapper {
         System.out.println(bucketName.split("-")[1]);
 
     }
+
 
     public void downloadObject(String bucketName, String key){
         try {
